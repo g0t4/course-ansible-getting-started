@@ -5,3 +5,13 @@
   hosts: localhost
   tasks:
   - copy: src="../adhoc/master.gitconfig" dest="~/.gitconfig" 
+
+- name: Ensure homebrew packages are installed.
+  hosts: localhost
+  tasks:
+  - homebrew: name=bat state=latest
+  - homebrew: 
+      name: jq
+      state: latest
+# ansible -m homebrew -a "name=bat state=latest" localhost
+# ansible -m homebrew -a "name=jq state=latest" localhost
