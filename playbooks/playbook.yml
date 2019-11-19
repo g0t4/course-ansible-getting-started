@@ -12,6 +12,6 @@
   - homebrew: name=bat state=latest
   - homebrew: 
       name: jq
-      state: latest
+    state: latest
 # ansible -m homebrew -a "name=bat state=latest" localhost
 # ansible -m homebrew -a "name=jq state=latest" localhost
