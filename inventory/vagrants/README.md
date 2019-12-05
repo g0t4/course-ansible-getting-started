@@ -7,6 +7,11 @@
 - Install
   - Vagrant: <https://www.vagrantup.com/docs/installation/>
   - VirtualBox: <https://www.virtualbox.org/wiki/Downloads>
+- Create VMs
+  - `cd` into this folder
+  - `vagrant up` creates all VMs
+    - or `vagrant up ubuntu10` to create one of the VMs
+    - or pass other patterns to `vagrant up` to create other subsets of the VMs
 
 ## Notes
 
