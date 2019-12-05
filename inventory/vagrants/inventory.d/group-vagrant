@@ -1,0 +1,7 @@
+[vagrant:children]
+centos
+ubuntu
+
+[vagrant:vars]
+ansible_user=vagrant
+ansible_port=22 
