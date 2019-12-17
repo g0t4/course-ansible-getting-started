@@ -7,18 +7,11 @@
 import json
 
 # must print a json dictionary, otherwise you'll get an error:
-    #   " needs to be a json dict"
+#   " needs to be a json dict"
 inventory = {
     "_meta": {
         "hostvars": {
-            "centos20": {
-                "ansible_host": "192.168.50.20",
-                "ansible_private_key_file": ".vagrant/machines/centos20/virtualbox/private_key"
-            },
-            "centos21": {
-                "ansible_host": "192.168.50.21",
-                "ansible_private_key_file": ".vagrant/machines/centos21/virtualbox/private_key"
-            }
+
         }
     },
     "centos": {
@@ -28,6 +21,12 @@ inventory = {
         ]
     }
 }
+
+for i in range(2):
+    inventory["_meta"]["hostvars"]["centos2{:d}".format(i)] = {
+        "ansible_host": "192.168.50.2{:d}".format(i),
+        "ansible_private_key_file": ".vagrant/machines/centos2{:d}/virtualbox/private_key".format(i)
+    }
 
 inventory_string = json.dumps(inventory,  4)
 
