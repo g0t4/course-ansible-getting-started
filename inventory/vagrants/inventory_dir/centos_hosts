@@ -1,2 +1,0 @@
-centos20 ansible_host=192.168.50.20 ansible_private_key_file='.vagrant/machines/centos20/virtualbox/private_key'
-centos21 ansible_host=192.168.50.21 ansible_private_key_file='.vagrant/machines/centos21/virtualbox/private_key'
