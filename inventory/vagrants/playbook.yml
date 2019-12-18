@@ -14,9 +14,15 @@
   tasks:
   - name: first show no config in targets
     command: git config --global --list
-    ignore_errors: yes
+    ignore_errors: yes 
+      # https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html#ignoring-failed-commands
+      # we know git config lookup will fail so ensure we don't stop playbook execution with ignore_errors
   - name: tried and true copy module with master.gitconfig from previously in the course 
     copy: src=master.gitconfig dest=~/.gitconfig
   - name: now, show newly added config!
     command: git config --global --list
     ignore_errors: yes
+
+
+## Notes
+# - This is a great read on error handling: https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html
