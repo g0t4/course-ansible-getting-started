@@ -12,16 +12,25 @@
 - name: Ensure ~/.gitconfig copied from master.gitconfig
   hosts: vagrant
   tasks:
+
   - name: first show no config in targets
     command: git config --global --list
     ignore_errors: yes 
       # https://docs.ansible.com/ansible/latest/user_guide/playbooks_error_handling.html#ignoring-failed-commands
       # we know git config lookup will fail so ensure we don't stop playbook execution with ignore_errors
+    register: git_config_before # how to register variables, in this case we capture the module output 
+  - name: show git config output always - verbosity 0 is default for debug module
+    debug: var=git_config_before # how to use variables!
+  
   - name: tried and true copy module with master.gitconfig from previously in the course 
     copy: src=master.gitconfig dest=~/.gitconfig
+  
   - name: now, show newly added config!
     command: git config --global --list
     ignore_errors: yes
+    register: git_config_after
+  - name: git config output
+    debug: var=git_config_after 
 
 
 ## Notes
