@@ -1,0 +1,4 @@
+# this file will be ignored because of .orig extension
+  # see INVENTORY_IGNORE_EXTS when working with inventory directories
+[win]
+my-windows-machine
