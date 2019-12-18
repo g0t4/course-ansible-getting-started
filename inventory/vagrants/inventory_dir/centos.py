@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # NOTE: this file must be executable `chmod +x centos.py`
 	# challenge: make this file not executable and see what `ansible-inventory --list` prints
 
@@ -24,11 +24,12 @@ inventory = {
 # challenge: port ubuntu static inventory to script too
 # challenge: port centos.py script (this file) back into static inventory 
 for i in range(2):
-    inventory["_meta"]["hostvars"]["centos2{:d}".format(i)] = {
-        "ansible_host": "192.168.50.2{:d}".format(i),
-        "ansible_private_key_file": ".vagrant/machines/centos2{:d}/virtualbox/private_key".format(i)
+    host = f"centos2{i}"
+    inventory["_meta"]["hostvars"][host] = {
+        "ansible_host": f"192.168.50.2{i}",
+        "ansible_private_key_file": f".vagrant/machines/{host}/virtualbox/private_key"
     }
-    inventory["centos"]["hosts"].append("centos2{:d}".format(i))
+    inventory["centos"]["hosts"].append(host)
 
 # python json API https://docs.python.org/3/library/json.html
 # script returns inventory formatted as json to ansible
