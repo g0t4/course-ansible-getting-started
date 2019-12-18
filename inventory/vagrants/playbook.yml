@@ -12,6 +12,9 @@
 - name: Ensure ~/.gitconfig copied from master.gitconfig
   hosts: vagrant
   tasks:
+  
+  - name: git_config module simplifies listing configuration 
+    git_config: list_all=yes scope=global
 
   - name: first show no config in targets
     command: git config --global --list
