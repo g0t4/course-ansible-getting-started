@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # NOTE: this file must be executable `chmod +x centos.py`
 	# challenge: make this file not executable and see what `ansible-inventory --list` prints
-
+# TEST this with a json formatter like `jq`:
+    # `./inventory_dir/centos.py | jq `
 # Great docs on how to build an inventory script
 # albeit an inventory plugin is preferrable
 # https://docs.ansible.com/ansible/latest/dev_guide/developing_inventory.html
