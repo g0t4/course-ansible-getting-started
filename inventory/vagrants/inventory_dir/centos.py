@@ -5,6 +5,7 @@
 # Great docs on how to build an inventory script
 # albeit an inventory plugin is preferrable
 # https://docs.ansible.com/ansible/latest/dev_guide/developing_inventory.html
+    # specifically about inventory scripts: https://docs.ansible.com/ansible/latest/dev_guide/developing_inventory.html#developing-inventory-scripts
 # https://docs.ansible.com/ansible/latest/user_guide/intro_dynamic_inventory.html
 import json
 
@@ -29,6 +30,6 @@ for i in range(2):
     }
     inventory["centos"]["hosts"].append("centos2{:d}".format(i))
 
-inventory_string = json.dumps(inventory, 4)
-
-print inventory_string
+# python json API https://docs.python.org/3/library/json.html
+# script returns inventory formatted as json to ansible
+print(json.dumps(inventory))
