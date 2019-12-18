@@ -1,0 +1,25 @@
+---
+
+- name: Ensure pre-reqs for docker connection plugin
+  hosts: localhost
+  tasks:
+  - pip: name=docker state=present
+
+- name: Ensure docker containers created
+  hosts: localhost
+  tasks:
+  - name: Ensure docker container started 
+    docker_container:
+      image: python
+      #command: bash
+      interactive: yes
+      name: ansible_container_test
+      state: started
+
+- name: Ensure git configured in containers
+  hosts: containers 
+  tasks:
+  - git_config: scope=global list_all=yes
+  - git_config: scope=global name=user.email value=wes.mcclure@gmail.com
+  - git_config: scope=global name=user.name value=Wes
+  - git_config: scope=global list_all=yes
