@@ -1,0 +1,22 @@
+---
+
+- name: Ensure git installed
+  hosts: centos 
+  tags: [ 'install-git' ]
+  tasks: 
+  - package: name=git state=latest
+    when: ansible_os_family == 'RedHat' # Or, target the OS itself =
+    become: yes
+  # Note: since we have a group of centos hosts we don't really need the when condition but it is here to demo conditional tasks and in the event we have a mistake or a group that contains a host that isn't a RHEL derivative 
+
+- name: Ensure ~/.gitconfig copied from master.gitconfig
+  hosts: vagrant
+  tasks:
+  # first show no config in targets
+  - command: git config --global --list
+    ignore_errors: yes
+  # use tried and true copy module 
+  - copy: src=master.gitconfig dest=~/.gitconfig
+  # then show newly added config!
+  - command: git config --global --list
+    ignore_errors: yes
