@@ -8,6 +8,5 @@ localhost ansible_connection="local" ansible_python_interpreter="/usr/local/bin/
     # - automatic discovery mode (auto, auto_silent, auto_legacy, ... )
   # see `ansible-config list` & look for ansible_python_interpreter for more
   # also see https://docs.ansible.com/ansible/latest/reference_appendices/interpreter_discovery.html for more about interpreter discovery
-  # - setting path is useful when you have a target with multiple 
-  python installs or nonstandard locations for installs, to avoid ambiguity and then ansible doesn't have to sniff out the python interpreter.
+  # - setting path is useful when you have a target with multiple python installs or nonstandard locations for installs, to avoid ambiguity and then ansible doesn't have to sniff out the python interpreter.
   # - challenge: run `ansible -m ping HOSTNAME` to see discovered interpreter path and if that isn't what is desired then set what is desired!
