@@ -13,8 +13,9 @@
       image: python
       #command: bash
       interactive: yes
-      name: ansible_container_test
+      name: "{{ item }}" 
       state: started
+    loop: "{{ query('inventory_hostnames', 'containers') }}"
 
 - name: Ensure git configured in containers
   hosts: containers 

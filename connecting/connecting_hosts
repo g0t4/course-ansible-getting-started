@@ -1,2 +1,2 @@
 [containers]
-ansible_container_test ansible_connection=docker remote_addr=localhost
+ansible_container_test[1:3] ansible_connection=docker
