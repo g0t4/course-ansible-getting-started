@@ -1,0 +1,9 @@
+- name: Ensure containers are gone 
+  hosts: localhost
+  tasks:
+  - name: Ensure container is absent 
+    docker_container:
+      name: "{{ item }}" 
+      force_kill: yes
+      state: absent 
+    loop: "{{ query('inventory_hostnames', 'containers') }}"
