@@ -1,6 +1,6 @@
 ---
 
-- name: Ensure pre-reqs for docker connection plugin
+- name: Ensure pre-reqs for docker_container module 
   hosts: localhost
   tasks:
   - pip: name=docker state=present
