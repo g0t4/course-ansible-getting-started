@@ -17,10 +17,10 @@
       state: started
     loop: "{{ query('inventory_hostnames', 'containers') }}"
 
-# - name: Ensure git configured in containers
-#   hosts: containers 
-#   tasks:
-#   - git_config: scope=global list_all=yes
-#   - git_config: scope=global name=user.email value=wes.mcclure@gmail.com
-#   - git_config: scope=global name=user.name value=Wes
-#   - git_config: scope=global list_all=yes
+- name: Ensure git configured in containers
+  hosts: containers 
+  tasks:
+  - git_config: scope=global list_all=yes
+  - git_config: scope=global name=user.email value=wes.mcclure@gmail.com
+  - git_config: scope=global name=user.name value=Wes
+  - git_config: scope=global list_all=yes
