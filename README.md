@@ -7,6 +7,8 @@ Here are Ansible Updates since the course (grouped by Ansible release) and inclu
 ### 2.10
 
 - Collections re-org
+  - Perhaps the best resource I've found is this overview/guide to[ what's going on with collections](https://github.com/ansible-collections/overview)
+    - [ansible-collections github org](https://github.com/ansible-collections/)
   - Ansible version 2.10 shifted focus to collections for organization of modules and namespacing (avoiding collisions in multiple implementations)!
     - This is largely an organizational change to how Ansible content can be consumed, packaged and distributed for reuse. 
     - First, there's nothing earthshattering as of 2.10!
