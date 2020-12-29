@@ -1,10 +1,11 @@
----
-short_description: > 
+## short description
+
    What if you could specify WHAT a system should look like and another tool
    took care of making that possible so you don't know HOW and can focus on just 
    WHAT outcome is needed. That's what Ansible can do for you. 
 
-long_description: >
+## long description
+
    Dining out is convenient because you decide **WHAT** to eat, and someone 
    else makes it for you. You don’t need to know **HOW** the sausage is made--literally--so long as the sausage is good!
 
