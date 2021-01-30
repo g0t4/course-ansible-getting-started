@@ -4,6 +4,26 @@
 
 Here are Ansible Updates since the course (grouped by Ansible release) and including some of the roadmap for what is coming. My notes here are the fastest way for me to get you updates and then I can modify the course as needed. 
 
+### Distilled since course updated last:
+
+- 👎 The [vscode extension vscoss.vscode-ansible](https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible) is deprecated (no hover help!) - this is the one I was using in the course. IIUC the URL pathing for modules have simply changed to reflect collection namespacing. 
+  - 👂 stay tuned for recommendations
+- 👍 🎁 `Collections` are first class citizens!
+  - 👍 `Collections` are replacing the prominence of `modules`!
+  > 👀 `Collections` ~= namespaced `modules`+ 
+  - 👀 `unqualified module name` - (such as `file` or `copy`) module's name without the collection prefix (namespace)
+    - 📇 `namespace` - when I say this, think `name space` - a safe space 😷 for names!
+      - 👹 like your network folder on the shared drive in high school, it's all yours but please don't go naming things in other people's folders! 
+    - 👁 `fully qualified module name (FQMN)` I predicted this and then just found it in the docs as a real term, that's great because my mind is ready for it, it makes sense!
+  - 👍 Since it would break the world, I predict that you will be able to use both unqualified and qualified module references for the foreseeable future. 
+  - 👀 [Collections Index](https://docs.ansible.com/ansible/latest/collections/index.html) takes "Modules Index" spot on site index, but that's just gravy!
+    - 👀 [All Modules Index](https://docs.ansible.com/ansible/latest/collections/index_module.html) 
+      - 📖 Think if you could click "expand all" on the [Collections Index](https://docs.ansible.com/ansible/latest/collections/index.html) or previousy on the [All Plugins Index](https://docs.ansible.com/ansible/latest/collections/all_plugins.html) - 
+      - *I like the new, organized all modules index, instead of a giant scrolling list!* 😀
+      - 📚 [Modules Index - circa 2.9](https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html)
+      - 📚 [Modules Index - circa 2.8](https://docs.ansible.com/ansible/2.8/modules/list_of_all_modules.html)
+    - 🎁 Modules are just part of what can be distributed in a collection so it makes sense to relocate the indexes of modules into collections.
+
 ### 2.10
 
 - Collections re-org
@@ -22,7 +42,7 @@ Here are Ansible Updates since the course (grouped by Ansible release) and inclu
     - Second, I address this and my speculations in the course about the future of collections as "sunsetting" roles in many ways or taking over the distribution aspect and roles become a high level way to share content. 
       - Now you can also share playbooks, plugins (modules, etc). This is much more robust and in many ways is a packagization of the core of ansible and the community of modules. And a proper namespacing mechanism that ties into distribution with Ansible Galaxy. 
 
-## Python 2 is sunset
+## Python 2 is sunset 
 
 It will take time to move beyond distros and apps that still support 2.X but the 2.X build is EOL'd so that should wrap up quickly, especially given that this EOLing has been a decade or more in the works.
 
