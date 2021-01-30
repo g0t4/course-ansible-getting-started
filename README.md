@@ -14,7 +14,8 @@ Here are Ansible Updates since the course (grouped by Ansible release) and inclu
   - 👀 `unqualified module name` - (such as `file` or `copy`) module's name without the collection prefix (namespace)
     - 📇 `namespace` - when I say this, think `name space` - a safe space 😷 for names!
       - 👹 like your network folder on the shared drive in high school, it's all yours but please don't go naming things in other people's folders! 
-    - 👁 `fully qualified module name (FQMN)` I predicted this and then just found it in the docs as a real term, that's great because my mind is ready for it, it makes sense!
+    - [`fully qualified collection name (FQCN)`](https://docs.ansible.com/ansible/latest/dev_guide/platforms/vmware_guidelines.html#example-should-use-the-fully-qualified-collection-name-fqcn) 
+      - 👁 I predicted this (becuase FQDN) and then found it in the docs as a real term! That's great because my mind was clearly ready for it!
   - 👍 Since it would break the world, I predict that you will be able to use both unqualified and qualified module references for the foreseeable future. 
   - 👀 [Collections Index](https://docs.ansible.com/ansible/latest/collections/index.html) takes "Modules Index" spot on site index, but that's just gravy!
     - 👀 [All Modules Index](https://docs.ansible.com/ansible/latest/collections/index_module.html) 
