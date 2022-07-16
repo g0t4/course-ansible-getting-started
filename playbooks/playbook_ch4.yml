@@ -1,0 +1,33 @@
+#This playbook introduces some useful modules using variables and debug
+# check the doco about valid variable names!
+
+---
+- name: Ensure git installed
+  hosts: centos
+  tags: [ 'install-git' ] # assign a tag to a play so you can selectively execute or skip them when calling the playbook 
+  tasks:
+  - package: name=git state=latest
+    when: ansible_os_family == 'RedHat' #conditional task only when RHEL
+    become: yes #  become superuser #https://docs.ansible.com/ansible/latest/user_guide/become.html
+
+- name: Ensure ~/.gitconfig copied from master.gitconfig
+  hosts: vagrant
+  tasks:
+#several tasks in this play - indent to show it
+  - name: first show no config in targets
+    command: git config --global --list
+    ignore_errors: yes #playbooks_error_handling. We know git command will error
+    register: git_config_before # register return value in new variable
+  - name: show git config output always - verbosity 0 is default for debug module
+    debug: var=git_config_before # print out the variable using inbuilt debug module
+#Or omit debug and call the playbook with -v to see outputs, I think
+
+  - name: copy module to copy file to targets
+    copy: src=master.gitconfig dest=~/.gitconfig
+
+  - name: show newly added config
+    command: git config --global --list
+    ignore_errors: yes
+    register: git_config_after
+  - name: ensure to show git config after with debug - this time only show stdout
+  - debug: var=git_config_after.stdout_lines
